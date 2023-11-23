@@ -1,13 +1,10 @@
 #include "ros/ros.h"
 #include "ik_service/PoseIK.h"
-#include "beginner_tutorials/AddTwoInts.h"
 
-bool add(beginner_tutorials::AddTwoInts::Request  &req,
-         beginner_tutorials::AddTwoInts::Response &res)
+bool pose_ik(ik_service::PoseIK::Request  &req,
+         ik_service::PoseIK::Response &res)
 {
-  res.sum = req.a + req.b;
-  ROS_INFO("request: x=%ld, y=%ld", (long int)req.a, (long int)req.b);
-  ROS_INFO("sending back response: [%ld]", (long int)res.sum);
+  ROS_INFO("Pose Information...");
   return true;
 }
 
@@ -16,7 +13,7 @@ int main(int argc, char **argv)
   ros::init(argc, argv, "add_two_ints_server");
   ros::NodeHandle n;
 
-  ros::ServiceServer service = n.advertiseService("add_two_ints", add);
+  ros::ServiceServer service = n.advertiseService("pose_ik", pose_ik);
   ROS_INFO("Ready to add two ints.");
   ros::spin();
 

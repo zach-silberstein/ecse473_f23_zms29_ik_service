@@ -1,5 +1,4 @@
 #include "ros/ros.h"
-#include "beginner_tutorials/AddTwoInts.h"
 #include "ik_service/PoseIK.h"
 #include <cstdlib>
 
@@ -12,7 +11,7 @@ int main(int argc, char **argv)
     return 1;
   }
   ros::NodeHandle n;
-  ros::ServiceClient client = n.serviceClient<beginner_tutorials::AddTwoInts>("add_two_ints");
+  ros::ServiceClient client = n.serviceClient<ik_service::PoseIK>("pose_ik");
   beginner_tutorials::AddTwoInts srv;
   srv.request.a = atoll(argv[1]);
   srv.request.b = atoll(argv[2]);
