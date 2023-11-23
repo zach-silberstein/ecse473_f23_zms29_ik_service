@@ -54,12 +54,22 @@ find_package(catkin REQUIRED COMPONENTS
 #   Message2.msg
 # )
 
+add_message_files(
+  FILES
+  JointSolutions.msg
+)
+
 ## Generate services in the 'srv' folder
 # add_service_files(
 #   FILES
 #   Service1.srv
 #   Service2.srv
 # )
+
+add_service_files(
+  FILES
+  PoseIK.srv
+)
 
 ## Generate actions in the 'action' folder
 # add_action_files(
@@ -73,6 +83,11 @@ find_package(catkin REQUIRED COMPONENTS
 #   DEPENDENCIES
 #   geometry_msgs#   std_msgs
 # )
+
+generate_messages(
+  DEPENDENCIES
+  geometry_msgs#   std_msgs
+)
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -136,6 +151,7 @@ include_directories(
 ## The recommended prefix ensures that target names across packages don't collide
 # add_executable(${PROJECT_NAME}_node src/ik_service_node.cpp)
 add_executable(ik_service_node src/ik_service.cpp)
+add_executable(ik_client_node src/ik_client.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -147,12 +163,20 @@ add_executable(ik_service_node src/ik_service.cpp)
 ## same as for the library above
 # add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
+add_dependencies(ik_service_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(ik_client_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+
+
 ## Specify libraries to link a library or executable target against
 # target_link_libraries(${PROJECT_NAME}_node
 #   ${catkin_LIBRARIES}
 # )
 
 target_link_libraries(ik_service_node
+  ${catkin_LIBRARIES}
+)
+
+target_link_libraries(ik_client_node
   ${catkin_LIBRARIES}
 )
 
