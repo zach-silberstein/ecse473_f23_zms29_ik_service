@@ -21,6 +21,15 @@ int main(int argc, char **argv)
 
   if (client.call(ik_pose)) {
     ROS_INFO("Call to ik_service returned [%i] solutions", ik_pose.response.num_sols);
+    for (int sol = 0; sol < ik_pose.response.num_sols; sol ++){
+        ROS_INFO("Solution %i: [%f, %f, %f, %f, %f, %f] radians", sol+1, \
+        ik_pose.response.joint_solutions[sol].joint_angles[0], \
+        ik_pose.response.joint_solutions[sol].joint_angles[1], \
+        ik_pose.response.joint_solutions[sol].joint_angles[2], \
+        ik_pose.response.joint_solutions[sol].joint_angles[3], \
+        ik_pose.response.joint_solutions[sol].joint_angles[4], \
+        ik_pose.response.joint_solutions[sol].joint_angles[5]);
+    }
   }
   else {
     ROS_ERROR("Failed to call service ik_service");
