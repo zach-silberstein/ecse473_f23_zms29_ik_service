@@ -12,6 +12,7 @@ find_package(catkin REQUIRED COMPONENTS
   message_generation
   roscpp
   std_msgs
+  ur_kinematics
 )
 
 ## System dependencies are found with CMake's conventions
