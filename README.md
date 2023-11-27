@@ -16,9 +16,8 @@ To run the project, launch the launch file by running
 Doing the above will only launch the service. To launch the client, which shows off example ussage of the service, run  
     `rosrun ik_service ik_client_node`  
 If the client is run succesfully the output should be:  
-
-Call to ik_service returned [4] solutions  
-Solution 1: [6.056550, 6.020876, 0.936839, 4.037859, 4.712389, 4.485754] radians  
-Solution 2: [6.056550, 0.607225, 5.346346, 5.042003, 4.712389, 4.485754] radians  
-Solution 3: [3.368228, 2.534368, 0.936839, 4.382775, 1.570796, 4.939024] radians  
-Solution 4: [3.368228, 3.403901, 5.346346, 5.386919, 1.570796, 4.939024] radians  
+    Call to ik_service returned [4] solutions  
+    Solution 1: [6.056550, 6.020876, 0.936839, 4.037859, 4.712389, 4.485754] radians  
+    Solution 2: [6.056550, 0.607225, 5.346346, 5.042003, 4.712389, 4.485754] radians  
+    Solution 3: [3.368228, 2.534368, 0.936839, 4.382775, 1.570796, 4.939024] radians  
+    Solution 4: [3.368228, 3.403901, 5.346346, 5.386919, 1.570796, 4.939024] radians  
